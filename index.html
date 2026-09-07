@@ -2,20 +2,33 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="theme-color" content="#050505">
+
 <title>Magno Eventos</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<meta name="description"
+content="Magno Eventos - Sonido, iluminación, música en vivo, serenatas y decoración para todo tipo de eventos.">
 
 <style>
+
 :root{
-  --gold:#f5c451;
-  --gold2:#b97816;
-  --dark:#050505;
-  --card:#0d0d0d;
-  --line:rgba(245,196,81,.45);
+  --gold:#f4c75b;
+  --gold-light:#ffe7a0;
+  --gold-dark:#9a6410;
+
+  --black:#050505;
+  --panel:#0d0d0d;
+  --panel2:#141414;
+
+  --text:#ffffff;
+  --muted:#bdbdbd;
 }
+
+/* RESET */
 
 *{
   box-sizing:border-box;
@@ -27,117 +40,304 @@ html{
 
 body{
   margin:0;
-  color:white;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  min-height:100vh;
+
+  font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Arial,
+  sans-serif;
+
+  color:var(--text);
+
   background:
-    radial-gradient(circle at 50% -10%,rgba(255,188,45,.22),transparent 30%),
-    radial-gradient(circle at 0% 50%,rgba(176,109,12,.12),transparent 35%),
-    #030303;
+  radial-gradient(circle at 50% -10%,
+  rgba(255,189,55,.20),
+  transparent 30%),
+
+  radial-gradient(circle at 0% 45%,
+  rgba(180,105,0,.08),
+  transparent 35%),
+
+  #020202;
 }
 
-.container{
-  width:min(100%,480px);
+/* CONTENEDOR */
+
+.page{
+  width:min(100%,520px);
   margin:auto;
   min-height:100vh;
-  padding:0 16px 42px;
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+  180deg,
+  #050505,
+  #080808 60%,
+  #030303
+  );
+
+  box-shadow:
+  0 0 60px rgba(0,0,0,.8);
 }
+
+/* HERO */
 
 .hero{
   position:relative;
+  height:410px;
   overflow:hidden;
-  height:390px;
-  margin:0 -16px;
-  border-radius:0 0 34px 34px;
-  border-bottom:1px solid var(--line);
 }
 
-.hero img{
+.hero-image{
+  position:absolute;
+  inset:0;
+
   width:100%;
   height:100%;
+
   object-fit:cover;
-  object-position:center 45%;
-  filter:brightness(.78) contrast(1.06);
+  object-position:center 47%;
+
+  filter:
+  brightness(.82)
+  contrast(1.05)
+  saturate(1.08);
 }
 
 .hero::after{
   content:"";
+
   position:absolute;
   inset:0;
+
   background:
-    linear-gradient(to bottom,rgba(0,0,0,.05) 15%,rgba(0,0,0,.25) 55%,#030303 100%);
+  linear-gradient(
+  180deg,
+  rgba(0,0,0,.08),
+  rgba(0,0,0,.08) 40%,
+  rgba(0,0,0,.65) 78%,
+  #050505 100%
+  );
 }
+
+/* HERO CONTENT */
 
 .hero-content{
   position:absolute;
   z-index:2;
+
   left:20px;
   right:20px;
-  bottom:20px;
+  bottom:18px;
+
   text-align:center;
 }
 
-.hero-content p{
-  margin:0;
-  color:#f8d77d;
+.tag{
+  display:inline-block;
+
+  padding:8px 14px;
+
+  border:
+  1px solid rgba(244,199,91,.5);
+
+  border-radius:999px;
+
+  color:var(--gold-light);
+
+  background:
+  rgba(5,5,5,.55);
+
+  backdrop-filter:
+  blur(10px);
+
+  font-size:11px;
+
+  letter-spacing:2px;
+
   text-transform:uppercase;
+}
+
+.hero-title{
+  margin:18px 0 8px;
+
+  font-family:
+  Georgia,
+  "Times New Roman",
+  serif;
+
+  font-size:31px;
+
   letter-spacing:3px;
-  font-size:12px;
-  line-height:1.6;
+
+  color:
+  var(--gold-light);
+
+  text-shadow:
+  0 0 18px
+  rgba(244,199,91,.2);
 }
 
-.title{
-  text-align:center;
-  color:var(--gold);
-  letter-spacing:4px;
-  font-size:14px;
-  margin:32px 0 18px;
+.hero-sub{
+  margin:0;
+
+  color:#ddd;
+
+  font-size:13px;
+
+  letter-spacing:2px;
+
+  line-height:1.7;
+
+  text-transform:uppercase;
 }
 
-.gold-line{
+/* CONTENT */
+
+.content{
+  padding:
+  0 18px 36px;
+}
+
+/* SECTION */
+
+.section{
+  margin-top:28px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  margin-bottom:18px;
+}
+
+.section-title::before,
+.section-title::after{
+  content:"";
+
+  flex:1;
+
   height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:0 0 22px;
+
+  background:
+  linear-gradient(
+  90deg,
+  transparent,
+  rgba(244,199,91,.7)
+  );
 }
+
+.section-title::after{
+  transform:scaleX(-1);
+}
+
+.section-title span{
+  color:
+  var(--gold);
+
+  font-size:13px;
+
+  letter-spacing:4px;
+
+  white-space:nowrap;
+}
+
+/* SERVICES */
 
 .services{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+  repeat(2,1fr);
+
   gap:12px;
 }
 
 .service{
   min-height:145px;
-  padding:18px 10px;
-  border:1px solid var(--line);
-  border-radius:20px;
-  background:
-    linear-gradient(145deg,rgba(245,196,81,.08),rgba(255,255,255,.01));
-  text-align:center;
+
+  padding:
+  18px 12px;
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   justify-content:center;
+
+  text-align:center;
+
+  border-radius:22px;
+
+  border:
+  1px solid
+  rgba(244,199,91,.28);
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(244,199,91,.09),
+  rgba(255,255,255,.01)
+  );
+
+  box-shadow:
+  inset 0 1px 0
+  rgba(255,255,255,.03),
+  0 12px 35px
+  rgba(0,0,0,.18);
 }
 
-.service i{
-  font-size:32px;
-  color:var(--gold);
-  margin-bottom:14px;
+.service-icon{
+  width:54px;
+  height:54px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:13px;
+
+  font-size:26px;
+
+  color:#161009;
+
+  background:
+  linear-gradient(
+  145deg,
+  #ffe9a5,
+  #cf8c17
+  );
+
+  box-shadow:
+  0 0 20px
+  rgba(244,199,91,.15);
 }
 
-.service span{
+.service strong{
   font-size:12px;
-  font-weight:700;
-  line-height:1.35;
+
+  line-height:1.45;
 }
 
-.service:last-child{
-  grid-column:1 / -1;
-}
+/* EVENTS */
 
 .events{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+  repeat(4,1fr);
+
   gap:8px;
 }
 
@@ -145,343 +345,739 @@ body{
   text-align:center;
 }
 
-.event i{
+.event-icon{
   width:58px;
   height:58px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+
   margin:auto;
-  color:var(--gold);
-  font-size:23px;
-  background:rgba(245,196,81,.04);
-}
 
-.event p{
-  margin:9px 0 0;
-  font-size:11px;
-  font-weight:600;
-}
-
-.buttons{
-  display:grid;
-  gap:12px;
-  margin-top:28px;
-}
-
-.btn{
-  min-height:72px;
-  border-radius:20px;
   display:flex;
+
   align-items:center;
-  text-decoration:none;
-  color:white;
-  padding:11px 18px;
-  border:1px solid var(--line);
-  background:#090909;
-}
 
-.btn:active{
-  transform:scale(.98);
-}
-
-.btn .icon{
-  width:45px;
-  font-size:30px;
-  text-align:center;
-  margin-right:15px;
-}
-
-.btn .info{
-  flex:1;
-}
-
-.btn .info strong{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
-}
-
-.btn .info small{
-  display:block;
-  color:#eee;
-  font-size:14px;
-}
-
-.btn .arrow{
-  color:var(--gold);
-  font-size:18px;
-}
-
-.whatsapp{
-  background:linear-gradient(110deg,#063f20,#079447);
-  border-color:#22d368;
-}
-
-.call{
-  background:
-    linear-gradient(110deg,rgba(175,105,8,.55),rgba(75,43,3,.8));
-}
-
-.call .icon{
-  color:#ffd878;
-}
-
-.instagram{
-  background:
-    linear-gradient(110deg,#cf7020,#b51d7b,#5219b5);
-  border-color:#d266bb;
-}
-
-.tiktok .icon{
-  color:white;
-}
-
-.location .icon{
-  color:#ef4949;
-}
-
-.cta{
-  display:flex;
-  align-items:center;
   justify-content:center;
-  gap:13px;
-  margin-top:24px;
-  min-height:78px;
-  border-radius:21px;
-  text-decoration:none;
-  color:#181000;
-  font-size:19px;
-  font-weight:900;
-  background:
-    linear-gradient(105deg,#a66809,#ffe08a,#d4931e,#ffe294);
-  box-shadow:
-    0 0 28px rgba(245,196,81,.22),
-    inset 0 1px 0 rgba(255,255,255,.65);
-}
 
-.cta i{
+  border-radius:50%;
+
+  border:
+  1px solid
+  rgba(244,199,91,.4);
+
+  background:
+  rgba(244,199,91,.05);
+
+  color:
+  var(--gold-light);
+
   font-size:25px;
 }
 
-.address{
-  margin:28px 0 0;
-  text-align:center;
-  font-size:13px;
-  color:#bdbdbd;
+.event span{
+  display:block;
+
+  margin-top:8px;
+
+  font-size:10px;
+
+  color:#ddd;
 }
 
+/* CONTACT */
+
+.contacts{
+  margin-top:28px;
+
+  display:grid;
+
+  gap:11px;
+}
+
+.contact{
+  min-height:72px;
+
+  padding:
+  10px 16px;
+
+  display:flex;
+
+  align-items:center;
+
+  text-decoration:none;
+
+  color:white;
+
+  border-radius:19px;
+
+  border:
+  1px solid
+  rgba(244,199,91,.35);
+
+  background:
+  linear-gradient(
+  120deg,
+  #121212,
+  #070707
+  );
+
+  box-shadow:
+  0 10px 30px
+  rgba(0,0,0,.18);
+
+  transition:
+  transform .15s ease;
+}
+
+.contact:active{
+  transform:
+  scale(.98);
+}
+
+.contact-icon{
+  width:48px;
+  height:48px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:15px;
+
+  margin-right:13px;
+
+  font-size:24px;
+}
+
+.contact-info{
+  flex:1;
+}
+
+.contact-info strong{
+  display:block;
+
+  font-size:15px;
+
+  margin-bottom:3px;
+}
+
+.contact-info small{
+  color:#ddd;
+
+  font-size:13px;
+}
+
+.arrow{
+  color:
+  var(--gold);
+
+  font-size:25px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  background:
+  linear-gradient(
+  115deg,
+  #06351c,
+  #078647
+  );
+
+  border-color:
+  rgba(34,211,104,.7);
+}
+
+.whatsapp .contact-icon{
+  background:
+  rgba(255,255,255,.13);
+}
+
+/* CALL */
+
+.call{
+  background:
+  linear-gradient(
+  115deg,
+  rgba(145,83,0,.8),
+  rgba(50,28,0,.88)
+  );
+}
+
+/* INSTAGRAM */
+
+.instagram{
+  background:
+  linear-gradient(
+  110deg,
+  #e08026,
+  #c51a87,
+  #5224c8
+  );
+}
+
+/* TIKTOK */
+
+.tiktok{
+  background:
+  linear-gradient(
+  110deg,
+  #101010,
+  #030303
+  );
+}
+
+/* LOCATION */
+
+.location{
+  background:
+  linear-gradient(
+  110deg,
+  #151515,
+  #080808
+  );
+}
+
+/* CTA */
+
+.cta{
+  margin-top:22px;
+
+  min-height:80px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:12px;
+
+  padding:
+  12px 18px;
+
+  border-radius:21px;
+
+  text-decoration:none;
+
+  color:#171006;
+
+  font-weight:900;
+
+  font-size:19px;
+
+  letter-spacing:.4px;
+
+  background:
+  linear-gradient(
+  110deg,
+  #a86808,
+  #ffd66c,
+  #ffe8a1,
+  #c37b0d
+  );
+
+  box-shadow:
+  0 8px 35px
+  rgba(244,199,91,.22),
+
+  inset 0 1px 0
+  rgba(255,255,255,.55);
+}
+
+/* SHARE */
+
+.share{
+  width:100%;
+
+  margin-top:12px;
+
+  min-height:55px;
+
+  border-radius:17px;
+
+  border:
+  1px solid
+  rgba(244,199,91,.25);
+
+  background:#0b0b0b;
+
+  color:#ddd;
+
+  font-size:14px;
+
+  cursor:pointer;
+}
+
+/* FOOTER */
+
 .footer{
+  padding:
+  34px 20px 25px;
+
   text-align:center;
-  margin-top:35px;
-  color:#d7ba72;
-  letter-spacing:5px;
-  font-family:Georgia,serif;
+}
+
+.footer-name{
+  color:
+  var(--gold-light);
+
+  font-family:
+  Georgia,
+  serif;
+
+  letter-spacing:6px;
+
+  font-size:15px;
 }
 
 .footer-line{
   width:100%;
   height:1px;
-  margin:16px 0;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+
+  margin:
+  18px 0;
+
+  background:
+  linear-gradient(
+  90deg,
+  transparent,
+  var(--gold),
+  transparent
+  );
 }
 
 .footer-small{
-  text-align:center;
   font-size:9px;
+
+  color:#9b9b9b;
+
   letter-spacing:3px;
-  color:#aaa;
+
   text-transform:uppercase;
 }
+
+/* FLOATING WHATSAPP */
+
+.float-wa{
+  position:fixed;
+
+  right:
+  max(18px,
+  calc((100vw - 520px)/2 + 18px));
+
+  bottom:
+  calc(18px + env(safe-area-inset-bottom));
+
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:#20c965;
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:29px;
+
+  box-shadow:
+  0 10px 30px
+  rgba(0,0,0,.45);
+
+  z-index:50;
+}
+
+/* ANIMATION */
+
+@media
+(prefers-reduced-motion:no-preference){
+
+  .service,
+  .contact,
+  .cta{
+    animation:
+    fadeup .5s ease both;
+  }
+
+  @keyframes fadeup{
+
+    from{
+      opacity:0;
+      transform:
+      translateY(10px);
+    }
+
+    to{
+      opacity:1;
+      transform:
+      translateY(0);
+    }
+
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<main class="page">
 
-  <section class="hero">
-    <img
-      src="296102DF-F4A9-44ED-A947-079C231BEA42.png"
-      alt="Magno Eventos">
+<section class="hero">
 
-    <div class="hero-content">
-      <p>
-        Hacemos de tu celebración<br>
-        un momento inolvidable
-      </p>
-    </div>
-  </section>
+<img
+class="hero-image"
+src="296102DF-F4A9-44ED-A947-079C231BEA42.png"
+alt="Magno Eventos">
 
-  <div class="title">NUESTROS SERVICIOS</div>
-  <div class="gold-line"></div>
+<div class="hero-content">
 
-  <div class="services">
+<div class="tag">
+Sonido · Iluminación · Eventos
+</div>
 
-    <div class="service">
-      <i class="fa-solid fa-volume-high"></i>
-      <span>SONIDO E ILUMINACIÓN PROFESIONAL</span>
-    </div>
+<div class="hero-title">
+MAGNO EVENTOS
+</div>
 
-    <div class="service">
-      <i class="fa-solid fa-cloud"></i>
-      <span>EFECTOS DE HUMO</span>
-    </div>
-
-    <div class="service">
-      <i class="fa-solid fa-music"></i>
-      <span>MÚSICA EN VIVO CON AGRUPACIÓN SIN LÍMITE</span>
-    </div>
-
-    <div class="service">
-      <i class="fa-solid fa-microphone"></i>
-      <span>SERVICIO DE SERENATA</span>
-    </div>
-
-    <div class="service">
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-      <span>DECORACIÓN PARA TODO TIPO DE EVENTOS</span>
-    </div>
-
-  </div>
-
-  <div class="title">NUESTROS EVENTOS</div>
-  <div class="gold-line"></div>
-
-  <div class="events">
-
-    <div class="event">
-      <i class="fa-solid fa-ring"></i>
-      <p>Matrimonios</p>
-    </div>
-
-    <div class="event">
-      <i class="fa-solid fa-cross"></i>
-      <p>Bautizos</p>
-    </div>
-
-    <div class="event">
-      <i class="fa-solid fa-cake-candles"></i>
-      <p>Cumpleaños</p>
-    </div>
-
-    <div class="event">
-      <i class="fa-solid fa-crown"></i>
-      <p>15 años</p>
-    </div>
-
-  </div>
-
-  <div class="buttons">
-
-    <a class="btn whatsapp"
-       href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quisiera%20cotizar%20un%20evento"
-       target="_blank">
-
-      <div class="icon">
-        <i class="fa-brands fa-whatsapp"></i>
-      </div>
-
-      <div class="info">
-        <strong>WhatsApp</strong>
-        <small>+56 9 8543 3822</small>
-      </div>
-
-      <i class="fa-solid fa-chevron-right arrow"></i>
-    </a>
-
-    <a class="btn call"
-       href="tel:+56985433822">
-
-      <div class="icon">
-        <i class="fa-solid fa-phone"></i>
-      </div>
-
-      <div class="info">
-        <strong>Llamar</strong>
-        <small>+56 9 8543 3822</small>
-      </div>
-
-      <i class="fa-solid fa-chevron-right arrow"></i>
-    </a>
-
-    <a class="btn instagram"
-       href="https://www.instagram.com/magno.eventos1"
-       target="_blank">
-
-      <div class="icon">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-
-      <div class="info">
-        <strong>Instagram</strong>
-        <small>@magno.eventos1</small>
-      </div>
-
-      <i class="fa-solid fa-chevron-right arrow"></i>
-    </a>
-
-    <a class="btn tiktok"
-       href="https://www.tiktok.com/@danny.dj88"
-       target="_blank">
-
-      <div class="icon">
-        <i class="fa-brands fa-tiktok"></i>
-      </div>
-
-      <div class="info">
-        <strong>TikTok</strong>
-        <small>@danny.dj88</small>
-      </div>
-
-      <i class="fa-solid fa-chevron-right arrow"></i>
-    </a>
-
-    <a class="btn location"
-       href="https://www.google.com/maps/search/?api=1&query=Pasaje+El+Pino+797"
-       target="_blank">
-
-      <div class="icon">
-        <i class="fa-solid fa-location-dot"></i>
-      </div>
-
-      <div class="info">
-        <strong>Ubicación</strong>
-        <small>Pasaje El Pino 797</small>
-      </div>
-
-      <i class="fa-solid fa-chevron-right arrow"></i>
-    </a>
-
-  </div>
-
-  <a class="cta"
-     href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quiero%20cotizar%20mi%20evento"
-     target="_blank">
-
-    <i class="fa-regular fa-calendar-check"></i>
-    COTIZA TU EVENTO
-    <i class="fa-solid fa-chevron-right"></i>
-
-  </a>
-
-  <p class="address">
-    Pasaje El Pino 797
-  </p>
-
-  <div class="footer">
-    MAGNO EVENTOS
-  </div>
-
-  <div class="footer-line"></div>
-
-  <div class="footer-small">
-    Calidad · Experiencia · Momentos inolvidables
-  </div>
+<p class="hero-sub">
+Hacemos de tu celebración<br>
+un momento inolvidable
+</p>
 
 </div>
+
+</section>
+
+
+<div class="content">
+
+<section class="section">
+
+<div class="section-title">
+<span>NUESTROS SERVICIOS</span>
+</div>
+
+<div class="services">
+
+<div class="service">
+<div class="service-icon">🔊</div>
+<strong>
+SONIDO E ILUMINACIÓN
+PROFESIONAL
+</strong>
+</div>
+
+<div class="service">
+<div class="service-icon">☁</div>
+<strong>
+EFECTOS DE HUMO
+</strong>
+</div>
+
+<div class="service">
+<div class="service-icon">♫</div>
+<strong>
+MÚSICA EN VIVO CON
+AGRUPACIÓN SIN LÍMITE
+</strong>
+</div>
+
+<div class="service">
+<div class="service-icon">🎙</div>
+<strong>
+SERVICIO DE SERENATA
+</strong>
+</div>
+
+<div class="service">
+<div class="service-icon">✦</div>
+<strong>
+DECORACIÓN PARA TODO
+TIPO DE EVENTOS
+</strong>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+<span>NUESTROS EVENTOS</span>
+</div>
+
+<div class="events">
+
+<div class="event">
+<div class="event-icon">💍</div>
+<span>Matrimonios</span>
+</div>
+
+<div class="event">
+<div class="event-icon">✝</div>
+<span>Bautizos</span>
+</div>
+
+<div class="event">
+<div class="event-icon">🎂</div>
+<span>Cumpleaños</span>
+</div>
+
+<div class="event">
+<div class="event-icon">♛</div>
+<span>15 años</span>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="contacts">
+
+<a
+class="contact whatsapp"
+href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quisiera%20cotizar%20un%20evento"
+target="_blank">
+
+<div class="contact-icon">
+☎
+</div>
+
+<div class="contact-info">
+
+<strong>
+WhatsApp
+</strong>
+
+<small>
++56 9 8543 3822
+</small>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</a>
+
+
+<a
+class="contact call"
+href="tel:+56985433822">
+
+<div class="contact-icon">
+📞
+</div>
+
+<div class="contact-info">
+
+<strong>
+Llamar
+</strong>
+
+<small>
++56 9 8543 3822
+</small>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</a>
+
+
+<a
+class="contact instagram"
+href="https://www.instagram.com/magno.eventos1"
+target="_blank">
+
+<div class="contact-icon">
+◎
+</div>
+
+<div class="contact-info">
+
+<strong>
+Instagram
+</strong>
+
+<small>
+@magno.eventos1
+</small>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</a>
+
+
+<a
+class="contact tiktok"
+href="https://www.tiktok.com/@danny.dj88"
+target="_blank">
+
+<div class="contact-icon">
+♪ 
+</div>
+
+<div class="contact-info">
+
+<strong>
+TikTok
+</strong>
+
+<small>
+@danny.dj88
+</small>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</a>
+
+
+<a
+class="contact location"
+href="https://www.google.com/maps/search/?api=1&query=Pasaje+El+Pino+797"
+target="_blank">
+
+<div class="contact-icon">
+📍
+</div>
+
+<div class="contact-info">
+
+<strong>
+Ubicación
+</strong>
+
+<small>
+Pasaje El Pino 797
+</small>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</a>
+
+</div>
+
+
+<a
+class="cta"
+href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quiero%20cotizar%20mi%20evento"
+target="_blank">
+
+📅
+
+<span>
+COTIZA TU EVENTO
+</span>
+
+›
+
+</a>
+
+
+<button
+class="share"
+onclick="shareCard()">
+
+Compartir tarjeta
+
+</button>
+
+</div>
+
+
+<footer class="footer">
+
+<div class="footer-name">
+MAGNO EVENTOS
+</div>
+
+<div class="footer-line"></div>
+
+<div class="footer-small">
+Calidad · Experiencia · Momentos inolvidables
+</div>
+
+</footer>
+
+</main>
+
+
+<a
+class="float-wa"
+href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quisiera%20información"
+target="_blank">
+
+☎
+
+</a>
+
+
+<script>
+
+function shareCard(){
+
+  if(navigator.share){
+
+    navigator.share({
+
+      title:
+      "Magno Eventos",
+
+      text:
+      "Conoce nuestros servicios para tu próximo evento.",
+
+      url:
+      window.location.href
+
+    });
+
+  }
+
+  else{
+
+    navigator.clipboard.writeText(
+    window.location.href
+    );
+
+    alert(
+    "Enlace copiado"
+    );
+
+  }
+te
+}
+
+</script>
 
 </body>
 </html>
