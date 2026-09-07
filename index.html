@@ -2,148 +2,528 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Magno Eventos</title>
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <style>
-*{box-sizing:border-box}
+:root{
+  --gold:#f5c451;
+  --gold2:#b97816;
+  --dark:#050505;
+  --card:#0d0d0d;
+  --line:rgba(245,196,81,.45);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(160deg,#090909,#181818);
-color:white;
-text-align:center;
+  margin:0;
+  color:white;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,188,45,.22),transparent 30%),
+    radial-gradient(circle at 0% 50%,rgba(176,109,12,.12),transparent 35%),
+    #030303;
 }
-.card{
-max-width:430px;
-margin:auto;
-padding:35px 20px 50px;
-min-height:100vh;
+
+.container{
+  width:min(100%,480px);
+  margin:auto;
+  min-height:100vh;
+  padding:0 16px 42px;
 }
-.logo{
-width:125px;
-height:125px;
-margin:auto;
-border-radius:50%;
-border:3px solid #d9a52e;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:21px;
-font-weight:bold;
-color:#e8bd50;
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  height:380px;
+  margin:0 -16px;
+  border-radius:0 0 34px 34px;
+  border-bottom:1px solid var(--line);
 }
-h1{
-font-size:34px;
-margin:18px 0 5px;
-color:#e7b642;
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 38%;
+  filter:brightness(.75) contrast(1.08);
 }
-.sub{
-color:#ccc;
-margin-bottom:25px;
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.05) 20%,rgba(0,0,0,.35) 60%,#030303 100%);
 }
-.box{
-background:#161616;
-border:1px solid #333;
-border-radius:18px;
-padding:18px;
-margin:18px 0;
-text-align:left;
+
+.hero-content{
+  position:absolute;
+  z-index:2;
+  left:20px;
+  right:20px;
+  bottom:18px;
+  text-align:center;
 }
-.box h2{
-color:#e7b642;
-font-size:19px;
-margin-top:0;
+
+.hero-content p{
+  margin:0;
+  color:#f8d77d;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  line-height:1.6;
 }
-.box p{
-margin:10px 0;
-color:#eee;
+
+/* TITULOS */
+
+.title{
+  text-align:center;
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:14px;
+  margin:32px 0 18px;
 }
+
+.gold-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 0 22px;
+}
+
+/* SERVICIOS */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.service{
+  min-height:145px;
+  padding:18px 10px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:
+    linear-gradient(145deg,rgba(245,196,81,.08),rgba(255,255,255,.01));
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:inset 0 0 25px rgba(245,196,81,.025);
+}
+
+.service i{
+  font-size:32px;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+
+.service span{
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+}
+
+.service:last-child{
+  grid-column:1 / -1;
+}
+
+/* EVENTOS */
+
+.events{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.event{
+  text-align:center;
+}
+
+.event i{
+  width:58px;
+  height:58px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  color:var(--gold);
+  font-size:23px;
+  background:rgba(245,196,81,.04);
+}
+
+.event p{
+  margin:9px 0 0;
+  font-size:11px;
+  font-weight:600;
+}
+
+/* BOTONES */
+
+.buttons{
+  display:grid;
+  gap:12px;
+  margin-top:28px;
+}
+
 .btn{
-display:block;
-margin:12px 0;
-padding:16px;
-border-radius:14px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-font-size:17px;
+  min-height:72px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  color:white;
+  padding:11px 18px;
+  border:1px solid var(--line);
+  background:#090909;
+  transition:.2s;
 }
-.whatsapp{background:#25D366}
-.instagram{background:linear-gradient(90deg,#f58529,#dd2a7b,#8134af)}
-.tiktok{background:#000;border:1px solid #444}
-.call{background:#2463d4}
-.map{background:#c28c19}
-footer{
-color:#888;
-margin-top:30px;
-font-size:13px;
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.btn .icon{
+  width:45px;
+  font-size:30px;
+  text-align:center;
+  margin-right:15px;
+}
+
+.btn .info{
+  flex:1;
+}
+
+.btn .info strong{
+  display:block;
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+.btn .info small{
+  display:block;
+  color:#eee;
+  font-size:14px;
+}
+
+.btn .arrow{
+  color:var(--gold);
+  font-size:18px;
+}
+
+/* COLORES */
+
+.whatsapp{
+  background:linear-gradient(110deg,#063f20,#079447);
+  border-color:#22d368;
+}
+
+.whatsapp .icon{
+  color:white;
+}
+
+.call{
+  background:
+    linear-gradient(110deg,rgba(175,105,8,.55),rgba(75,43,3,.8));
+}
+
+.call .icon{
+  color:#ffd878;
+}
+
+.instagram{
+  background:
+    linear-gradient(110deg,#cf7020,#b51d7b,#5219b5);
+  border-color:#d266bb;
+}
+
+.tiktok .icon{
+  color:white;
+}
+
+.location .icon{
+  color:#ef4949;
+}
+
+.location{
+  min-height:76px;
+}
+
+/* CTA */
+
+.cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  margin-top:24px;
+  min-height:78px;
+  border-radius:21px;
+  text-decoration:none;
+  color:#181000;
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.5px;
+  background:
+    linear-gradient(105deg,#a66809,#ffe08a,#d4931e,#ffe294);
+  box-shadow:
+    0 0 28px rgba(245,196,81,.22),
+    inset 0 1px 0 rgba(255,255,255,.65);
+}
+
+.cta i{
+  font-size:25px;
+}
+
+/* FOOTER */
+
+.address{
+  margin:28px 0 0;
+  text-align:center;
+  font-size:13px;
+  color:#bdbdbd;
+}
+
+.footer{
+  text-align:center;
+  margin-top:35px;
+  color:#d7ba72;
+  letter-spacing:5px;
+  font-family:Georgia,serif;
+}
+
+.footer-line{
+  width:100%;
+  height:1px;
+  margin:16px 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.footer-small{
+  text-align:center;
+  font-size:9px;
+  letter-spacing:3px;
+  color:#aaa;
+  text-transform:uppercase;
+}
+
+/* ESCRITORIO */
+
+@media(min-width:430px){
+  .services{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .service:last-child{
+    grid-column:auto;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<div class="logo">MAGNO<br>EVENTOS</div>
+  <section class="hero">
+    <img
+      src="296102DF-F4A9-44ED-A947-079C231BEA42.jpeg"
+      alt="Magno Eventos">
 
-<h1>Magno Eventos</h1>
+    <div class="hero-content">
+      <p>
+        Hacemos de tu celebración<br>
+        un momento inolvidable
+      </p>
+    </div>
+  </section>
 
-<p class="sub">
-Hacemos de tu celebración un momento inolvidable
-</p>
+  <div class="title">NUESTROS SERVICIOS</div>
+  <div class="gold-line"></div>
 
-<div class="box">
-<h2>Nuestros servicios</h2>
+  <div class="services">
 
-<p>Sonido e Iluminación profesional</p>
-<p>Efectos de humo</p>
-<p>Música en vivo con agrupación Sin Límite</p>
-<p>Servicio de serenata</p>
-<p>Decoración para todo tipo de eventos</p>
-</div>
+    <div class="service">
+      <i class="fa-solid fa-volume-high"></i>
+      <span>SONIDO E ILUMINACIÓN PROFESIONAL</span>
+    </div>
 
-<div class="box">
-<h2>Eventos</h2>
+    <div class="service">
+      <i class="fa-solid fa-cloud"></i>
+      <span>EFECTOS DE HUMO</span>
+    </div>
 
-<p>Matrimonios</p>
-<p>Bautizos</p>
-<p>Cumpleaños</p>
-<p>15 años</p>
-</div>
+    <div class="service">
+      <i class="fa-solid fa-music"></i>
+      <span>MÚSICA EN VIVO CON AGRUPACIÓN SIN LÍMITE</span>
+    </div>
 
-<a class="btn whatsapp"
-href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quisiera%20cotizar%20un%20evento">
-Cotizar por WhatsApp
-</a>
+    <div class="service">
+      <i class="fa-solid fa-microphone"></i>
+      <span>SERVICIO DE SERENATA</span>
+    </div>
 
-<a class="btn call" href="tel:+56985433822">
-Llamar ahora
-</a>
+    <div class="service">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <span>DECORACIÓN PARA TODO TIPO DE EVENTOS</span>
+    </div>
 
-<a class="btn instagram"
-href="https://www.instagram.com/magno.eventos1"
-target="_blank">
-Instagram
-</a>
+  </div>
 
-<a class="btn tiktok"
-href="https://www.tiktok.com/@danny.dj88"
-target="_blank">
-TikTok
-</a>
+  <div class="title">NUESTROS EVENTOS</div>
+  <div class="gold-line"></div>
 
-<a class="btn map"
-href="https://www.google.com/maps/search/?api=1&query=Pasaje+El+Pino+797"
-target="_blank">
-Ver ubicación
-</a>
+  <div class="events">
 
-<footer>
-Pasaje El Pino 797<br><br>
-Magno Eventos
-</footer>
+    <div class="event">
+      <i class="fa-solid fa-ring"></i>
+      <p>Matrimonios</p>
+    </div>
+
+    <div class="event">
+      <i class="fa-solid fa-cross"></i>
+      <p>Bautizos</p>
+    </div>
+
+    <div class="event">
+      <i class="fa-solid fa-cake-candles"></i>
+      <p>Cumpleaños</p>
+    </div>
+
+    <div class="event">
+      <i class="fa-solid fa-crown"></i>
+      <p>15 años</p>
+    </div>
+
+  </div>
+
+  <div class="buttons">
+
+    <a class="btn whatsapp"
+       href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quisiera%20cotizar%20un%20evento"
+       target="_blank">
+
+      <div class="icon">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+
+      <div class="info">
+        <strong>WhatsApp</strong>
+        <small>+56 9 8543 3822</small>
+      </div>
+
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+
+    <a class="btn call"
+       href="tel:+56985433822">
+
+      <div class="icon">
+        <i class="fa-solid fa-phone"></i>
+      </div>
+
+      <div class="info">
+        <strong>Llamar</strong>
+        <small>+56 9 8543 3822</small>
+      </div>
+
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+
+    <a class="btn instagram"
+       href="https://www.instagram.com/magno.eventos1"
+       target="_blank">
+
+      <div class="icon">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+
+      <div class="info">
+        <strong>Instagram</strong>
+        <small>@magno.eventos1</small>
+      </div>
+
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+
+    <a class="btn tiktok"
+       href="https://www.tiktok.com/@danny.dj88"
+       target="_blank">
+
+      <div class="icon">
+        <i class="fa-brands fa-tiktok"></i>
+      </div>
+
+      <div class="info">
+        <strong>TikTok</strong>
+        <small>@danny.dj88</small>
+      </div>
+
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+
+    <a class="btn location"
+       href="https://www.google.com/maps/search/?api=1&query=Pasaje+El+Pino+797"
+       target="_blank">
+
+      <div class="icon">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+
+      <div class="info">
+        <strong>Ubicación</strong>
+        <small>Pasaje El Pino 797</small>
+      </div>
+
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+  </div>
+
+
+  <a class="cta"
+     href="https://wa.me/56985433822?text=Hola%20Magno%20Eventos,%20quiero%20cotizar%20mi%20evento"
+     target="_blank">
+
+    <i class="fa-regular fa-calendar-check"></i>
+    COTIZA TU EVENTO
+    <i class="fa-solid fa-chevron-right"></i>
+
+  </a>
+
+  <p class="address">
+    Pasaje El Pino 797
+  </p>
+
+  <div class="footer">
+    MAGNO EVENTOS
+  </div>
+
+  <div class="footer-line"></div>
+
+  <div class="footer-small">
+    Calidad · Experiencia · Momentos inolvidables
+  </div>
 
 </div>
 
